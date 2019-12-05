@@ -1,0 +1,644 @@
+<div id="hc_richmedia">
+    <meta name="viewport" content="width=device-width">
+	<script type="text/javascript">
+		if(!window.jQuery || !window.$) {
+			document.write('\x3Cscript src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript">\x3C/script>');
+		}
+	</script>
+	<!--<script type="text/javascript" src="mraid.js"></script>-->
+	<style type="text/css">
+	body {margin: 0 auto;}
+	#hc_richmedia {
+		position:relative;
+		width:320px;
+		margin:0 auto;
+	}
+	#hc_richmedia .hc_initial_view {
+		position:relative;
+		z-index:1;
+	}
+	#hc_richmedia .hc_content {
+		position:relative;
+		width:320px;
+		height:300px;
+		text-align:center;
+		z-index:1;
+	}
+	#hc_richmedia .hc_closebtn {
+		position:absolute;
+		top:5px;
+		right:5px;
+		z-index:15;
+		cursor:pointer;
+	}
+	#hc_richmedia .hc_closebtn img {
+		position:relative;
+		z-index:20;
+	}
+	#hc_richmedia .hc_content h3 {
+		margin-top:0;
+	}
+	#hc_richmedia .hc_blockimg {
+		display:block;
+	}
+	a img {border: none;}
+	
+	/* custom styles */
+        
+        
+      
+        #wrapper {
+            width: 320px;
+            height: 490px;
+            background-color: #090A02;
+            margin: 0 auto;
+            position: relative;
+            font-family: 'avangid_-webfont', arial, sans-serif;
+            color: white;
+        }
+        #header {
+            height: 80px;
+            padding: .4em;  
+        }
+        .how {
+            color: white;
+        }
+        .how .disclaim, .again .disclaim {
+            color: #2EA225;
+        }
+        .game {
+            color: #def3f8;
+            border-bottom: 1px solid #447416;
+        }
+        .again {
+            color: #BAD992;
+        }
+        #logo {
+            float: left;
+            width: 32%;
+        }
+        #logo img {
+            margin: 1em 0 0 .2em;
+            max-width: 100px;
+        }
+        #titles {
+            text-align: center;
+            height: 62px;
+        }
+        .jackpot {
+            font-size: 85%;
+        }
+        .disclaim {
+            font-size: 10%;
+            color: #505050;
+            text-align: center;
+            position: relative;
+            bottom: 1.3em;
+        }
+        #how-to {
+            position: relative;
+            width: 320px;
+            height: 390px;
+            z-index: 10;
+            background: url("images/pinball/40563.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        #lives {
+            display: none;
+            float: left;
+            position: relative;
+            z-index: 20;
+            width: 23px;
+            height: 70px;
+            top: .5em;
+            left: .5em;
+        }
+        #lives.threeleft {
+            background: url("images/pinball/40566.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #lives.twoleft {
+            background: url("images/pinball/40565.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #lives.oneleft {
+            background: url("images/pinball/40564.png") no-repeat;
+            background-size: 100% 100%;
+        }
+		#score {
+            display: none;
+            float: right;
+            position: relative;
+            z-index: 20;
+            text-align: center;
+			right: 2.5em;
+			top: .2em;
+        }
+		.score {
+            font-size: 80%;
+        }
+        #clover {
+            text-align: center;
+            font-size: 80%;
+            color: #4ee4ff;
+            position: relative;
+            display: none;
+            z-index: 2;
+            top: 19em;
+            left: 1em;
+            line-height: 1.3em;
+        }
+        .amount {
+            font-size: 250%;
+        }
+        .amount sup {
+            font-size: 35%;
+        }
+        .today {
+            font-size: 60%;
+        }
+		#game-stage {
+            display: none;
+            position: absolute; 
+			overflow:hidden; 
+			width:300px;
+			height:340px;
+			z-index: 10;
+            bottom: 0;
+            left: 12px;
+		}
+        #game-back {
+            display: none;
+            position: absolute; 
+			overflow:hidden; 
+			width:300px;
+			height:340px;
+			z-index: 1;
+            bottom: 0;
+            left: 12px;
+            background: url("images/pinball/40799.png") no-repeat;
+        }
+        #play-again {
+            display: none;
+            position: relative;
+            width: 320px;
+            height: 390px;
+            z-index: 10;
+            background: url("images/pinball/40563.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+		#android {
+            display: none;
+            position: relative;
+            width: 320px;
+            height: 390px;
+            z-index: 10;
+            background: url("images/pinball/40568.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #inner {
+            text-align: center;
+            padding: 2em;
+            text-transform: uppercase;
+        }
+        #inner ol {
+            text-align: left;
+        }
+        #shamrock {
+            margin-bottom: .5em;
+        }
+        #play, #start {
+            cursor: pointer;
+        }
+        @font-face {
+	       font-family: 'avangid_-webfont';
+	       src: url('fonts/pinball/40558.eot');
+	       src: url('fonts/pinball/40558.eot?#iefix') format('embedded-opentype'),
+		   url('fonts/pinball/40562.woff') format('woff'),
+           url('fonts/pinball/40560.ttf') format('truetype');
+	       font-weight: normal;
+	       font-style: normal;
+        }
+        h1 {
+            font-family: 'avangid_-webfont', arial, sans-serif;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+        }
+        h1 sup {
+            font-size: 40%;
+        }
+        p {
+            font-size: 90%;
+        }
+        #hc_richmedia .hc_closebtn img {
+            width: 60%;
+        }
+        #collapsed-bg {
+             height: 50px;
+            width: 320px;
+            background-size: 100% 100%;
+            position:absolute;
+            background-image: url("images/pinball/40668.png");
+        }
+        .collapsed {
+            height: 50px;
+            width: 320px;
+            background-size: 100% 100%;
+            position:absolute;
+        }
+        #frame-01 {
+            background-image:
+                url("images/pinball/40664.jpg");
+        }
+        #frame-02 {
+            background-image: url("images/pinball/40805.jpg");
+            display:none;
+        }
+        #pot {
+            position: absolute;
+            z-index: 10;
+            float: right;
+            color: #5bade7;
+            right: 35px;
+            font-size: 200%;
+            font-weight: bold;
+            font-family: 'avangid_-webfont', arial, sans-serif;
+            display: none;
+        }
+        #pot sup {
+            font-size: 35%;
+        }
+        #frame-03 {
+            background-image: url("images/pinball/40666.jpg");
+            display:none;
+        }
+        #frame-04 {
+            background-image: url("images/pinball/40667.jpg");
+            display:none;
+        }
+
+	</style>
+	
+	<div class="hc_initial_view">		
+		<a href="#" id="hc_expand" onclick="jQuery.hc_rm.expand(event); return false;">	
+            <div id="collapsed-bg">
+                <div id="frame-04" class="collapsed"></div>
+                <div id="frame-03" class="collapsed"></div>
+                 <div id="frame-02" class="collapsed"></div>
+                <div id="frame-01" class="collapsed"></div> 
+                <div id="pot"><sup>$</sup><span id="potluck">000</span></div>
+            </div>
+		</a>	
+	</div><!-- end initial view content -->
+	
+	<div class="hc_content" id="hc_content" style="display:none;">
+	
+		<div class="hc_closebtn" id="hc_closebtn" style="display:none;" onclick="jQuery.hc_rm.collapse(event); return false;">
+			<img src="images/pinball/40596.png" />
+		</div>	
+		
+		<div id="wrapper">
+        <div id="header" class="how">
+            <div id="logo">
+                <img src="images/pinball/40669.png" width="120" alt="PowerBall" />
+            </div>
+            <div id="titles"><span class="jackpot">TODAY'S JACKPOT</span><h1><sup>$</sup><span id="jackpot">250,000,000</span></h1><br/></div>
+            <div style="float: none; clear: both;"></div>
+            <div class="disclaim">Overall odds are 1 in 31.8. Must be 18 or older to purchase. Visit walottery.com for details.</div>
+        </div>
+        <div id="how-to">
+            <div id="inner">
+                <img src="images/pinball/40570.png" height="70" width="70" id="shamrock" alt="Washington's Lotto" /><br/>
+                <img src="images/pinball/40571.png" height="27" width="250" alt="Jackpot Wizard" />
+                <p>See if you&rsquo;ve got what it takes! rack up enough points to match or beat today&rsquo;s high jackpot.</p>
+                <ol>
+                    <li>Tap your finger to launch the pinball</li>
+                    <li>Tap to control flipper</li>
+                </ol>
+                <img src="images/pinball/40572.png" height="48" width="200" id="start" alt="Start" />
+            </div>
+        </div>
+        <div id="lives" class="threeleft"></div>
+        <div id="score"><span class="score">YOUR SCORE</span><h1><sup>$</sup><span id="total">000,000,000</span></h1></div>
+            <div id="clover"><span class="today">TODAY'S JACKPOT</span><br/><span class="amount"><sup>$</sup><span id="today">000</span></span><br/>MILLION</div>
+        <div id="game-stage"></div>
+        <div id="game-back"></div>
+        <!--<div id="position" style="color:black; background-color:yellow;position: relative; top: 430px; display: none">TEMP</div>-->
+        <div id="play-again">
+            <div id="inner">
+                <img src="images/pinball/40570.png" height="70" width="70" id="shamrock" alt="Washington's Lotto" /><br/>
+                <img src="images/pinball/40571.png" height="27" width="250" alt="Jackpot Wizard" />
+                <p>Congrats JACKPOT WIZARD, You beat todays high jackpot - and more importantly you now know the jackpot. Now just imagine all that you could do with those winnings. Like playing pinball in your personal home arcade all day long.</p>
+                <img src="images/pinball/40573.png" height="46" width="200" id="play" alt="Play" />
+            </div>
+        </div>
+        <div id="android">
+        	<div id="inner">
+            	<p>Please upgrade your browser to Chrome to play Jackpot Wizard.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.android.chrome"><img src="images/pinball/40574.png" height="100" width="100" border="0" alt="Chrome Logo" /></a>
+            </div>
+        </div>
+    </div>
+		
+	</div><!-- end reveal content -->
+
+	<script type="text/javascript">
+		
+		/* DO NOT USE slashes for comments. */
+		/* use .toggle to reveal from left to right, down */
+		/* use .slideToggle to reveal from top to bottom */
+		/* any closing html tags must have the forward slash escaped,e.g. <\/div> */
+	
+		(function ($) {		
+			
+			var fifheight;
+					
+			$.hc_rm = {
+				getQP: function (p) {
+					if(window.location && typeof window.location.search === "string") {
+						var qArray = window.location.search.substr(1).split("&"),qParam,i;
+						for(i=0; i<qArray.length; i++) {
+							qParam = qArray[i].split("=");
+							if(qParam.length === 2 && qParam[0] === p) {
+								return unescape(qParam[1]);
+							}
+						}
+					}
+					return false;
+				},
+				getSQP: function(p) {
+					/*var scriptSrc = $("script[src*='as.aug.me']").attr('src');*/
+                    var scriptSrc = "";
+					/*var tmp = scriptSrc.split("?");*/
+					var tmp = "";
+					if(tmp.length > 1) {
+						var qArray = tmp[1].split("&"),qParam,i;
+						for(i=0; i<qArray.length; i++) {
+							qParam = qArray[i].split("=");
+							if(qParam.length === 2 && qParam[0] === p) {
+								return unescape(qParam[1]);
+							}
+						}
+					}
+					return false;
+				},
+				expand: function (e) {				
+					if (!e) { e = window.event; }
+					e.cancelBubble = true;
+					if (e.stopPropagation) e.stopPropagation();	
+					/* FIF support */
+					if(window.inDapIF === true) {
+						$("iframe",parent.document).each(function(iel, el){
+							if(el.contentWindow === window) {
+								fifheight = $(el).css("height");
+								$(el).css("height","300px");
+								return false;
+							}
+						});
+					}				
+					
+					/*$("#endlink").attr('href', 'http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=7361325&PluID=0&ord='+new Date().getTime()+'&mb=1&ck=1&on=<operator>');*/
+					
+					/* mraid function call */
+					if(typeof mraid !== "undefined") {
+						mraid.useCustomClose(true);
+						mraid.expand();
+					}					
+					/* animations for expand */
+					$("#hc_richmedia .hc_initial_view").hide();
+					$("#hc_richmedia .hc_content").show();
+					$("#hc_richmedia .hc_closebtn").show();
+				
+					
+					/* Hip expansion tracking */				
+					$("#hc_richmedia").append('<img src="#trk:expansion#?cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');	
+      
+      				var seconds = 0;
+            
+            		setInterval( function() {dwellTime()}, 10000);
+            
+            		function dwellTime () {    
+               	 		var i = new Image();
+                
+                		if (seconds < 60) {
+                    		seconds = seconds + 10;
+                    		i.src ='#trk:dwell_'+seconds+'#?cb='+new Date().getTime();
+                		}      
+            		};
+					
+					/* 3rd party expansion tracker */
+     				if(this.getSQP('exp') !== false) {
+     					$("#hc_richmedia").append('<img src="'+decodeURIComponent(this.getSQP('exp'))+'&cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');
+     				}
+     								
+					return false;
+				},
+				collapse: function(e) {
+					if (!e) { e = window.event; }
+					e.cancelBubble = true;
+					if (e.stopPropagation) e.stopPropagation();	
+					/* FIF support */
+					if(window.inDapIF === true) {
+						$("iframe",parent.document).each(function(iel, el){
+							if(el.contentWindow === window) {
+								$(el).css("height",fifheight);
+								return false;
+							}
+						});
+					}				
+					/* mraid function call */
+					if(typeof mraid !== "undefined") {
+						mraid.close();
+					}					
+					/* animations for collapse */
+					$("#hc_richmedia .hc_initial_view").show();
+					$("#hc_richmedia .hc_content").hide();
+					$("#hc_richmedia .hc_closebtn").hide();					
+					$("#hc_richmedia").append('<img src="#trk:collapse#?cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');			
+                    
+					return false;													
+				},
+				engage: function(e) {
+					if (!e) { e = window.event; }
+					e.cancelBubble = true;
+					if (e.stopPropagation) e.stopPropagation();
+					$("#hc_richmedia").append('<img src="#trk:engage#?cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');
+					return false;
+				}
+				
+			};
+			
+			
+		}(jQuery));
+		
+		/* Add mraid lister */
+		if(typeof mraid !== "undefined") {
+			mraid.addEventListener("stateChange", handleStateChanges);
+		}
+		
+		/* Mraid Handle State Change */
+		function handleStateChanges() {
+
+			switch(mraid.getState()) {
+				case "expanded":
+					jQuery.hc_rm.expand();
+					break;
+				case "default":
+					jQuery.hc_rm.collapse();
+					break;
+			}
+			
+		}
+		
+		$(document).ready(function() {
+            
+            /*impression tracking*/
+            var i = new Image();
+	        i.src = '#trk:WA-Lottery-PB-View#?cb='+new Date().getTime();
+      
+      		 /*impression tracking*/
+            var i = new Image();
+	        i.src = 'http://ad.doubleclick.net/ad/N5932.285074.HIPCRICKET/B8045829.9;sz=1x1;ord='+new Date().getTime();
+            
+            var jackpot = 0;
+            
+            slideshow();
+            
+            function slideshow() {
+               
+                var index=0;
+                
+                $("#frame-01").show();
+                $("#frame-02").hide();
+                $("#pot").hide();
+                $("#frame-03").hide();
+                $("#frame-04").hide();
+                
+                loop();
+
+                
+                function loop() {
+                    
+                    setInterval ( function () {
+                        
+                        switch (index) {
+                            case 1:
+                                $("#frame-04").delay(1000).fadeOut(600);
+                                $("#frame-01").delay(1000).fadeIn(600);
+                                $("#frame-02").hide();
+                                $("#pot").hide();
+                                $("#frame-03").hide();
+                                index++;
+                                break;
+                            case 2:
+                                $("#frame-01").delay(1000).fadeOut(600);
+                                $("#frame-02").delay(1000).fadeIn(600);
+                                $("#pot").delay(1000).fadeIn(600);
+                                $("#frame-03").hide();
+                                $("#frame-04").hide();
+                                index++;
+                                break;
+                            case 3:
+                                $("#frame-02").delay(1000).fadeOut(600);
+                                $("#pot").delay(1000).fadeOut(600);
+                                $("#frame-03").delay(1000).fadeIn(600);
+                                $("#frame-01").hide();
+                                $("#frame-04").hide();
+                                index++;
+                                break;
+                            case 4:
+                                $("#frame-03").delay(1000).fadeOut(600);
+                                $("#frame-04").delay(1000).fadeIn(600);
+                                $("#frame-02").hide();
+                                $("#pot").hide();
+                                $("#frame-01").hide();
+                                index++;
+                                break;
+                            default:
+                                $("#frame-01").delay(50).fadeOut(600);
+                                $("#frame-02").delay(50).fadeIn(600);
+                                $("#pot").delay(50).fadeIn(600);
+                                $("#frame-04").hide();
+                                $("#frame-03").hide();
+                                index = 3;
+                                break;
+                        }
+                        
+                        if (index > 4) {
+                            index = 1;
+                        }
+                        
+                    }, 3000);
+                }
+                
+                
+            };
+            
+            $.ajax({
+                    url: 'http://services.walottery.com/Lottery.svc/getPBJackpot',
+                    dataType: 'json',
+                    success: function(dataWeGotViaJson){
+                        var today = dataWeGotViaJson.d;
+                        jackpot = Math.ceil(parseFloat(today)*1000000);
+                        if (jackpot > 99000000) {
+                            $("#jackpot").css("font-size", "80%").html(jackpot).digits();
+                        } else {
+                            $("#jackpot").html(jackpot).digits();
+                        }
+                        var str = "";
+                        str = today.toString();
+                        if (str.indexOf(".0") != -1) {
+                            today = Math.ceil(today);
+                        }
+                        if (today > 999) {
+                            $("#today").css("font-size", "80%").html(today);
+                            $("#potluck").css("font-size", "80%").html(today);
+                        } else {
+                            $("#today").html(today);
+                            $("#potluck").html(today);
+                        }
+                    }
+                });
+            
+            $("#start").on("touchstart click", function() {
+                
+                var i = new Image();
+                i.src = '#trk:WA-Lottery-PB-Start#?cb='+new Date().getTime();
+                $("#clover").css("display", "block");
+                
+            });
+            
+            $("#play").on("touchstart click", function() {
+                
+                var i = new Image();
+                i.src = '#trk:WA-Lottery-PB-Play-Again#?cb='+new Date().getTime();
+                $("#clover").css("display", "block");
+                
+            });
+            
+            
+			$(".hc_ci").bind("click",function(e){
+				e.preventDefault();
+				e.stopPropagation();
+	
+				var label = $(this).data("trackinglabel");
+				var url = $(this).attr("href");
+				
+				var i = new Image();
+	
+				i.onload = function(){
+					window.location = url;
+				};
+
+				i.src = '#trk:'+label+'#?cb='+new Date().getTime();
+			});
+			
+		});
+	</script>
+    
+    <script type="text/javascript" src="scripts/pinball/40591.js"></script>
+    <script type="text/javascript" src="scripts/pinball/40592.js"></script>
+    <script type="text/javascript" src="scripts/pinball/41471.js"></script>
+    <!--<script type="text/javascript" src="js/assets/pinball320v7.js"></script>-->
+	
+</div><!-- end required wrapper -->
